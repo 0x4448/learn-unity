@@ -24,3 +24,7 @@ The [official tutorial](https://learn.unity.com/tutorial/working-with-yamlmerge)
 suggests using `$HOME/.gitconfig`. This eliminates the need to configure on a
 per-project basis, but there is no guarantee that the YAML merge tool from one
 version of Unity is compatible with projects made with other versions.
+
+# pre-commit
+[pre-commit](https://pre-commit.com) is used to configure git pre-commit hooks.
+It can help check code for syntax or style issues before committing.
