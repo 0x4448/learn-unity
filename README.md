@@ -2,7 +2,7 @@
 Learn Unity by making something simple.
 
 ## Milestones
-- [ ] Setup the repository
+- [x] [Setup the repository](Documentation/repo-setup.md)
 - [ ] Map
   - [ ] Terrain
   - [ ] Objects
