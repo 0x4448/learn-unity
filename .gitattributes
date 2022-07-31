@@ -1,22 +1,19 @@
 # This .gitattributes file should be placed at the root of your Unity project directory
 # https://git-scm.com/docs/gitattributes
 
-# Text files use LF by default
-* text=lf
-
 # C# files use CRLF
 *.cs eol=crlf
 
 # Smart merge for Unity files
-*.anim merge=unityyamlmerge
-*.asset merge=unityyamlmerge
-*.controller merge=unityyamlmerge
-*.mat merge=unityyamlmerge
-*.meta merge=unityyamlmerge
-*.physicMaterial merge=unityyamlmerge
-*.physicsMaterial2D merge=unityyamlmerge
-*.prefab merge=unityyamlmerge
-*.unity merge=unityyamlmerge
+*.anim eol=lf merge=unityyamlmerge
+*.asset eol=lf merge=unityyamlmerge
+*.controller eol=lf merge=unityyamlmerge
+*.mat eol=lf merge=unityyamlmerge
+*.meta eol=lf merge=unityyamlmerge
+*.physicMaterial eol=lf merge=unityyamlmerge
+*.physicsMaterial2D eol=lf merge=unityyamlmerge
+*.prefab eol=lf merge=unityyamlmerge
+*.unity eol=lf merge=unityyamlmerge
 
 # Merge tool should be configured in $GIT_DIR/config
 # See project documentation for details.
