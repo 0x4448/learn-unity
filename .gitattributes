@@ -9,6 +9,7 @@
 
 # Files that use LF
 *.json eol=lf
+*.inputactions eol=lf
 *.txt eol=lf
 *.vsconfig eol=lf
 
