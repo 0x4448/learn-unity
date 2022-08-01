@@ -21,6 +21,7 @@
 *.physicMaterial eol=lf merge=unityyamlmerge
 *.physicsMaterial2D eol=lf merge=unityyamlmerge
 *.prefab eol=lf merge=unityyamlmerge
+*.terrainlayer eol=lf merge=unityyamlmerge
 *.unity eol=lf merge=unityyamlmerge
 
 # Merge tool should be configured in $GIT_DIR/config
@@ -30,3 +31,4 @@
 # https://git-lfs.github.com
 # example format:
 # *.ext filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
