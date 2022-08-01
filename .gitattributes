@@ -21,7 +21,7 @@
 *.physicMaterial eol=lf merge=unityyamlmerge
 *.physicsMaterial2D eol=lf merge=unityyamlmerge
 *.prefab eol=lf merge=unityyamlmerge
-*.unity eol=crlf merge=unityyamlmerge
+*.unity eol=lf merge=unityyamlmerge
 
 # Merge tool should be configured in $GIT_DIR/config
 # See project documentation for details.
