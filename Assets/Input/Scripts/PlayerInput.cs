@@ -29,11 +29,25 @@ public class PlayerInput : MonoBehaviour
         Vector2 input = inputAction.OnFoot.Move.ReadValue<Vector2>();
         // x, y from input maps to x, z because no vertical movement
         Vector3 force = new(input.x, 0, input.y);
-        player.AddForce(force * speed, ForceMode.Force);
+        player.AddRelativeForce(force * speed, ForceMode.Force);
+
+        input = inputAction.OnFoot.Look.ReadValue<Vector2>();
+        if (input.x != 0)
+        {   
+            Vector3 rotation = new(0, input.x * 50, 0);
+            Quaternion delta = Quaternion.Euler(rotation * Time.fixedDeltaTime);
+            player.MoveRotation(player.rotation * delta);
+        }
+        if (input.y != 0)
+        {
+            Vector3 rotation = new(input.y * 50, 0, 0);
+            Quaternion delta = Quaternion.Euler(rotation * Time.fixedDeltaTime);
+            player.MoveRotation(player.rotation * delta);
+        }
     }
 
     private void Jump(InputAction.CallbackContext context)
     {
-        player.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        player.AddRelativeForce(Vector3.up * 5f, ForceMode.Impulse);
     }
 }
