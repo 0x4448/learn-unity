@@ -1,0 +1,45 @@
+{
+    "name": "Player",
+    "maps": [
+        {
+            "name": "OnFoot",
+            "id": "4886d275-1d9d-41d3-aafc-a9ddf5a654a0",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "7f269ee9-dfa9-4751-ab5b-4e7d376404ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cdae4608-1c1f-41d0-ade4-03e8cd094192",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "410ce8a4-6f52-492a-a8b2-dc60500f1e49",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
