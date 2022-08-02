@@ -46,7 +46,7 @@ public class PlayerInput : MonoBehaviour
         float y = playerCamera.transform.localRotation.y;
         if (y > -45 && y < 45)
         {
-            Quaternion yRotation = Quaternion.Euler(input.y * Time.fixedDeltaTime * lookSensitivity, 0, 0);
+            Quaternion yRotation = Quaternion.Euler(-input.y * Time.fixedDeltaTime * lookSensitivity, 0, 0);
             playerCamera.transform.localRotation = yRotation * playerCamera.transform.localRotation;
         }
     }
