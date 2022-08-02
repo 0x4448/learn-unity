@@ -39,15 +39,16 @@ public class PlayerInput : MonoBehaviour
         Vector3 force = new(input.x, 0, input.y);
         playerBody.AddRelativeForce(force * moveSpeed, ForceMode.Force);
 
+        // Rotate player and camera horizontally
         input = inputAction.OnFoot.Look.ReadValue<Vector2>();
         Quaternion xRotation = Quaternion.Euler(0, input.x * Time.fixedDeltaTime * lookSensitivity, 0);
         playerBody.MoveRotation(playerBody.rotation * xRotation);
 
-        float y = playerCamera.transform.localRotation.y;
-        if (y > -45 && y < 45)
-        {
-            Quaternion yRotation = Quaternion.Euler(-input.y * Time.fixedDeltaTime * lookSensitivity, 0, 0);
-            playerCamera.transform.localRotation = yRotation * playerCamera.transform.localRotation;
+        // Rotate camera vertically
+        Quaternion yRotation = Quaternion.Euler(-input.y * Time.fixedDeltaTime * lookSensitivity, 0, 0);
+        Quaternion finalRotation = yRotation * playerCamera.transform.localRotation;
+        if (finalRotation.x > -0.4 && finalRotation.x < 0.4) {
+            playerCamera.transform.localRotation = finalRotation;
         }
     }
 
