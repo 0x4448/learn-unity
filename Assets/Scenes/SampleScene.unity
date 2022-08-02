@@ -133,9 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9018272}
   - component: {fileID: 9018274}
-  - component: {fileID: 9018273}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: WorldCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,14 +155,6 @@ Transform:
   m_Father: {fileID: 1179415081}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 46.445, z: 0}
---- !u!81 &9018273
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9018271}
-  m_Enabled: 1
 --- !u!20 &9018274
 Camera:
   m_ObjectHideFlags: 0
@@ -1097,7 +1088,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389ce30f2a8eebe4fbb1fbc9a405b9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 25
   lookSensitivity: 50
+  playerCamera: {fileID: 1789868858}
+  overheadCamera: {fileID: 9018274}
 --- !u!54 &1264025837
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1223,7 +1217,7 @@ GameObject:
   - component: {fileID: 1789868858}
   - component: {fileID: 1789868857}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

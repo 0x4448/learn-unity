@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private float moveSpeed;
     [SerializeField] private float lookSensitivity;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Camera overheadCamera;
@@ -14,6 +15,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
+        // Set initial camera state
         playerCamera.enabled = true;
         overheadCamera.enabled = false;
 
@@ -31,38 +33,22 @@ public class PlayerInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float speed = 25f;
         // Get direction
         Vector2 input = inputAction.OnFoot.Move.ReadValue<Vector2>();
         // x, y from input maps to x, z because no vertical movement
         Vector3 force = new(input.x, 0, input.y);
-        playerBody.AddRelativeForce(force * speed, ForceMode.Force);
+        playerBody.AddRelativeForce(force * moveSpeed, ForceMode.Force);
 
         input = inputAction.OnFoot.Look.ReadValue<Vector2>();
-        Vector3 rotation = new(input.y * lookSensitivity, input.x * lookSensitivity, 0);
-        Quaternion delta = Quaternion.Euler(rotation * Time.fixedDeltaTime);
-        playerBody.MoveRotation(playerBody.rotation * delta);
+        Quaternion xRotation = Quaternion.Euler(0, input.x * Time.fixedDeltaTime * lookSensitivity, 0);
+        playerBody.MoveRotation(playerBody.rotation * xRotation);
 
-        // Reset z rotation
-        float x = playerBody.transform.rotation.x;
-        float y = playerBody.transform.rotation.y;
-        float z = playerBody.transform.rotation.z;
-        Debug.Log($"{x},{y},{z}");
-        //playerBody.transform.rotation = Quaternion.Euler(x, y, 0f);
-
-
-        //if (input.x != 0)
-        //{   
-        //    Vector3 rotation = new(0, input.x * 50, 0);
-        //    Quaternion delta = Quaternion.Euler(rotation * Time.fixedDeltaTime);
-        //    playerBody.MoveRotation(playerBody.rotation * delta);
-        //}
-        //if (input.y != 0)
-        //{
-        //    Vector3 rotation = new(input.y * 50, 0, 0);
-        //    Quaternion delta = Quaternion.Euler(rotation * Time.fixedDeltaTime);
-        //    playerBody.MoveRotation(playerBody.rotation * delta);
-        //}
+        float y = playerCamera.transform.localRotation.y;
+        if (y > -45 && y < 45)
+        {
+            Quaternion yRotation = Quaternion.Euler(input.y * Time.fixedDeltaTime * lookSensitivity, 0, 0);
+            playerCamera.transform.localRotation = yRotation * playerCamera.transform.localRotation;
+        }
     }
 
     private void Jump(InputAction.CallbackContext context)
