@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 25
-  lookSensitivity: 50
+  lookSensitivity: 5
   playerCamera: {fileID: 1789868858}
   overheadCamera: {fileID: 9018274}
 --- !u!54 &1264025837
@@ -1314,6 +1314,7 @@ GameObject:
   - component: {fileID: 1789868856}
   - component: {fileID: 1789868858}
   - component: {fileID: 1789868857}
+  - component: {fileID: 1789868859}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -1388,3 +1389,16 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!65 &1789868859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789868855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
